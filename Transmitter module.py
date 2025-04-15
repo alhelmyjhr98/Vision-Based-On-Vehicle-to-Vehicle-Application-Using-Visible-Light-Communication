@@ -20,14 +20,25 @@ def sendWARNING(): # WARNING - 1010  #
 #     GPIO.output(LaserGPIO, GPIO.LOW)
 #     time.sleep(2)
     # Signal start
+    
+    # Bit 1: Laser ON (85ms), then OFF (115ms)
     GPIO.output(LaserGPIO, GPIO.HIGH)
-    time.sleep(85/1000)
+    time.sleep(85 / 1000)
     GPIO.output(LaserGPIO, GPIO.LOW)
-    time.sleep(115/1000)
+    time.sleep(115 / 1000)
+
+    # Bit 0: Laser stays OFF for 200ms
+    time.sleep(200 / 1000)
+
+    # Bit 1: Laser ON (85ms), then OFF (115ms)
     GPIO.output(LaserGPIO, GPIO.HIGH)
-    time.sleep(85/1000)
+    time.sleep(85 / 1000)
     GPIO.output(LaserGPIO, GPIO.LOW)
-    time.sleep(115/1000)
+    time.sleep(115 / 1000)
+
+    # Bit 0: Laser stays OFF for 200ms
+    time.sleep(200 / 1000)
+
 #     # Reset transmission
 #     GPIO.output(LaserGPIO, GPIO.HIGH)
 
